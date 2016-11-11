@@ -2,13 +2,13 @@
 /**
  * This <lide-app.com.io> project created by : 
  * Name         : syafiq
- * Date / Time  : 10 November 2016, 8:43 PM.
+ * Date / Time  : 11 November 2016, 10:54 AM.
  * Email        : syafiq.rezpector@gmail.com
  * Github       : syafiqq
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Auth extends CI_Controller
+class Wscontent extends CI_Controller
 {
     /**
      * Index Page for this controller.
@@ -29,11 +29,20 @@ class Auth extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->helper('url');
+        $this->load->library('session');
         // Your own constructor code
     }
 
     public function index()
     {
-        
+        if (isset($_SESSION['user']))
+        {
+            echo json_encode(array('code' => 200, 'message' => 'Access Granted'));
+        }
+        else
+        {
+            echo json_encode(array('code' => 200, 'message' => 'Access Denied'));
+        }
     }
 }
