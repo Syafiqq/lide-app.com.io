@@ -49,7 +49,7 @@
                     url: form.attr('action'),
                     data: form.serializeObject(),
                     dataType: 'json',
-                    contentType : 'application/x-www-form-urlencoded; charset=UTF-8; X-Requested-With: XMLHttpRequest'
+                    contentType: 'application/x-www-form-urlencoded; charset=UTF-8; X-Requested-With: XMLHttpRequest'
                 })
                     .done(function (data)
                     {

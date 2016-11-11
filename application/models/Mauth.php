@@ -1,6 +1,6 @@
 <?php
 /**
- * This <lide-app.com.io> project created by : 
+ * This <lide-app.com.io> project created by :
  * Name         : syafiq
  * Date / Time  : 11 November 2016, 9:35 AM.
  * Email        : syafiq.rezpector@gmail.com
