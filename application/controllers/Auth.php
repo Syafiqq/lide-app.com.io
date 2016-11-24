@@ -1,8 +1,8 @@
 <?php
 /**
- * This <lide-app.com.io> project created by : 
+ * This <lide-app.com.io> project created by :
  * Name         : syafiq
- * Date / Time  : 10 November 2016, 8:43 PM.
+ * Date / Time  : 11 November 2016, 7:58 AM.
  * Email        : syafiq.rezpector@gmail.com
  * Github       : syafiqq
  */
@@ -29,11 +29,25 @@ class Auth extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->helper('url');
+        $this->load->library('session');
         // Your own constructor code
     }
 
     public function index()
     {
-        
+        echo "this is index";
+    }
+
+    public function wslogin()
+    {
+        if (!isset($_SESSION['user']))
+        {
+            $this->load->view('auth/ws/login');
+        }
+        else
+        {
+            echo 'Access Denied';
+        }
     }
 }

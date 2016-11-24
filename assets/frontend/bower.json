@@ -1,0 +1,25 @@
+{
+  "name": "lide-app.com.io",
+  "homepage": "https://github.com/Syafiqq/lide-app.com.io",
+  "authors": [
+    "Syafiqq <syafiq.rezpector@gmail.com>"
+  ],
+  "description": "test lide app",
+  "main": "none",
+  "keywords": [
+    "health"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "jquery-serialize-object": "^2.5.0"
+  }
+}

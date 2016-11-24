@@ -2,13 +2,13 @@
 /**
  * This <lide-app.com.io> project created by :
  * Name         : syafiq
- * Date / Time  : 10 November 2016, 8:43 PM.
+ * Date / Time  : 11 November 2016, 8:01 AM.
  * Email        : syafiq.rezpector@gmail.com
  * Github       : syafiqq
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Test extends CI_Controller
+class Content extends CI_Controller
 {
     /**
      * Index Page for this controller.
@@ -29,26 +29,32 @@ class Test extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->helper('url');
+        $this->load->library('session');
         // Your own constructor code
     }
 
     public function index()
     {
-        log_message('ERROR', var_export($_POST, true));
-        log_message('ERROR', var_export($_GET, true));
-        log_message('ERROR', var_export($_REQUEST, true));
-        if ($this->input->is_ajax_request())
+        if (isset($_SESSION['user']))
         {
-            log_message('ERROR', "is_ajax");
-            header('Content-type: application/json');
-            echo json_encode(array('value' => 200));
+            echo 'Access Granted';
         }
         else
         {
-            log_message('ERROR', "is_not_ajax");
-            header('Content-type: application/json');
-            echo json_encode(array('value' => 404));
+            echo 'Access Denied';
         }
+    }
 
+    public function wsadd()
+    {
+        if (isset($_SESSION['user']))
+        {
+            $this->load->view('content/ws/add');
+        }
+        else
+        {
+            echo 'Access Denied';
+        }
     }
 }
