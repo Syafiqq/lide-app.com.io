@@ -39,7 +39,7 @@ class Auth extends CI_Controller
         echo "this is index";
     }
 
-    public function loginws()
+    public function wslogin()
     {
         if (!isset($_SESSION['user']))
         {
