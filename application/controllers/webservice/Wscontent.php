@@ -45,4 +45,18 @@ class Wscontent extends CI_Controller
             echo json_encode(array('code' => 200, 'message' => 'Access Denied'));
         }
     }
+
+    public function add()
+    {
+        if (isset($_SESSION['user']))
+        {
+            log_message('ERROR', var_export($_POST, true));
+            $this->load->model('Mcontent', 'mcontent');
+            echo json_encode(array('code' => 200, 'message' => $this->mcontent->add($_POST['add'])));
+        }
+        else
+        {
+            echo json_encode(array('code' => 200, 'message' => 'Access Denied'));
+        }
+    }
 }
