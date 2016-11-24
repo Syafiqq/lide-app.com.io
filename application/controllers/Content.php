@@ -45,4 +45,16 @@ class Content extends CI_Controller
             echo 'Access Denied';
         }
     }
+
+    public function wsadd()
+    {
+        if (isset($_SESSION['user']))
+        {
+            $this->load->view('content/ws/add');
+        }
+        else
+        {
+            echo 'Access Denied';
+        }
+    }
 }
