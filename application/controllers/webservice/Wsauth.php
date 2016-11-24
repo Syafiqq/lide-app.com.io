@@ -35,11 +35,20 @@ class Wsauth extends CI_Controller
 
     public function login()
     {
+        //log_message('ERROR', var_export(apache_request_headers(), true));
+        //log_message('ERROR', var_export($_SERVER, true));
         if (!isset($_SESSION['user']))
         {
             if ($this->input->is_ajax_request() && ($_SERVER['REQUEST_METHOD'] === 'POST'))
             {
-                log_message('ERROR', var_export(array('get' => $_GET, 'post' => $_POST), true));
+                if(isset($_SERVER['HTTP_X_REQUESTED_ORIGIN_TYPE']))
+                {
+                    if(strcmp(strtolower($_SERVER['HTTP_X_REQUESTED_ORIGIN_TYPE']), 'smartphone') === 0)
+                    {
+                        $_POST = json_decode(file_get_contents('php://input'), true);
+                        log_message('ERROR', var_export(array('get' => $_GET, 'post' => $_POST), true));
+                    }
+                }
                 $this->load->model('Mauth', 'mauth');
                 $result = $this->mauth->login($_POST['email'], $_POST['password']);
                 if (!empty($result))
