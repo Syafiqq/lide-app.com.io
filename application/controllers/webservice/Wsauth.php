@@ -35,8 +35,6 @@ class Wsauth extends CI_Controller
 
     public function login()
     {
-        //log_message('ERROR', var_export(apache_request_headers(), true));
-        //log_message('ERROR', var_export($_SERVER, true));
         if (!isset($_SESSION['user']))
         {
             if ($this->input->is_ajax_request() && ($_SERVER['REQUEST_METHOD'] === 'POST'))
