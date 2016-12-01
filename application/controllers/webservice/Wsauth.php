@@ -39,16 +39,15 @@ class Wsauth extends CI_Controller
         {
             if ($this->input->is_ajax_request() && ($_SERVER['REQUEST_METHOD'] === 'POST'))
             {
-                if(isset($_SERVER['HTTP_X_REQUESTED_ORIGIN_TYPE']))
+                if (isset($_SERVER['HTTP_X_REQUESTED_ORIGIN_TYPE']))
                 {
-                    if(strcmp(strtolower($_SERVER['HTTP_X_REQUESTED_ORIGIN_TYPE']), 'smartphone') === 0)
+                    if (strcmp(strtolower($_SERVER['HTTP_X_REQUESTED_ORIGIN_TYPE']), 'smartphone') === 0)
                     {
                         $_POST = json_decode(file_get_contents('php://input'), true);
-                        log_message('ERROR', var_export(array('get' => $_GET, 'post' => $_POST), true));
                     }
                 }
                 $this->load->model('Mauth', 'mauth');
-                $result = $this->mauth->login($_POST['email'], $_POST['password']);
+                $result = $this->mauth->login($_POST['user']['role'], $_POST['user']['email'], $_POST['user']['password']);
                 if (!empty($result))
                 {
                     $this->session->set_userdata('user', $result[0]);
