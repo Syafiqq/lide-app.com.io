@@ -1,0 +1,21 @@
+.panel {
+    background-color: #1976D2;
+    border-color: transparent;
+}
+
+.panel-footer {
+    padding: 1px 15px;
+    color: #A0A0A0;
+}
+
+.profile-img {
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 2%;
+    -webkit-border-radius: 2%;
+    border-radius: 2%;
+}
+
+.panel-body, html, body {
+    background-color: #1976D2;
+}
