@@ -23,4 +23,10 @@ class Welcome extends CI_Controller
     {
         $this->load->view('welcome_message');
     }
+
+    public function testBootstrap()
+    {
+        $this->load->helper('url');
+        $this->load->view('dump/test/bootstrap');
+    }
 }
