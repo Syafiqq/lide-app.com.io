@@ -343,6 +343,9 @@ class Welm extends CI_Controller
 
     public function simulate()
     {
+        echo json_encode(array('code' => 403, 'message' => 'Access Denied'));
+        return;
+
         $this->load->model('melm_profile');
         $profiles = $this->melm_profile->loadAllActiveProfile();
         foreach ($profiles as $profile)
