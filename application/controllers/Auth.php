@@ -50,4 +50,16 @@ class Auth extends CI_Controller
             echo 'Access Denied';
         }
     }
+
+    public function login()
+    {
+        if (!isset($_SESSION['user']))
+        {
+            $this->load->view('auth/login');
+        }
+        else
+        {
+            echo 'Access Denied';
+        }
+    }
 }

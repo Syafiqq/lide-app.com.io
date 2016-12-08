@@ -137,7 +137,9 @@ $config['subclass_prefix'] = 'MY_';
 | Note: This will NOT disable or override the CodeIgniter-specific
 |	autoloading (application/config/autoload.php)
 */
-$config['composer_autoload'] = FALSE;
+//$config['composer_autoload'] = TRUE;
+$config['composer_autoload'] = FCPATH . 'vendor/autoload.php';;
+require_once FCPATH . 'vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -371,7 +373,7 @@ $config['encryption_key'] = '';
 $config['sess_driver'] = 'database';
 $config['sess_save_path'] = 'ci_sessions';
 $config['sess_cookie_name'] = 'ci_session';
-$config['sess_expiration'] = 30;
+$config['sess_expiration'] = 7200;
 $config['sess_match_ip'] = TRUE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;

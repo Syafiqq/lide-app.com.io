@@ -16,10 +16,10 @@ class Mauth extends CI_Model
         // Your own constructor code
     }
 
-    public function login($email, $password)
+    public function login($role, $email, $password)
     {
-        $query = 'SELECT `id`, `username`, `email`, `password` FROM `user` WHERE `email` = ? AND `password` = ? LIMIT 1';
-        $data = array($email, md5(md5($password)));
+        $query = 'SELECT `id`, `username`, `role`, `email`, `password` FROM `user` WHERE `email` = ? AND `password` = ? AND `role` = ? LIMIT 1';
+        $data = array(strtolower($email), md5(md5($password)), strtolower($role));
         $result = $this->db->query($query, $data);
         return $result->result_array();
     }
