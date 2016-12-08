@@ -47,7 +47,7 @@
     <input id="load_profile_submit" type="submit" value="Predict All">
 </form>
 <br>
-<form id="simulate" action="<?php echo site_url('webservice/welm/simulate') ?>" method="post">
+<form id="simulate" action="<?php echo site_url('api/simulate') ?>" method="post">
     <input id="load_profile_submit" type="submit" value="Simulate Cron Job">
 </form>
 <br>
